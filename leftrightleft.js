@@ -15,16 +15,16 @@ for (var i = 0; i < testcases; i++) {
     ratings = String(ratings).split(' ');
     
     for (var j = 0; j < nopeople; j++) {
-        if(rating == ratings[j]) { System.out.println("YES"); break; }
-        else if(rating < ratings[j]) {
-            if (smallR == -999999) { smallR = ratings[j]; }
-            else if (ratings[j] > smallR) { System.out.println("NO"); break; }
-            else smallR = ratings[j];
+        if(rating == Number(ratings[j])) { System.out.println("YES"); break; }
+        else if(rating < Number(ratings[j])) {
+            if (smallR == -999999) { smallR = Number(ratings[j]); }
+            else if (Number(ratings[j]) > smallR) { System.out.println("NO"); break; }
+            else smallR = Number(ratings[j]);
         }
-        else if(rating > ratings[j]) {
-            if (bigL == -999999) { bigL = ratings[j]; }
-            else if (ratings[j] < bigL) { System.out.println("NO"); break; }
-            else bigL = ratings[j];
+        else if(rating > Number(ratings[j])) {
+            if (bigL == -999999) { bigL = Number(ratings[j]); }
+            else if (Number(ratings[j]) < bigL) { System.out.println("NO"); break; }
+            else bigL = Number(ratings[j]);
         }
     }
 }
