@@ -5,8 +5,8 @@ var read = new BufferedReader( new InputStreamReader(System['in']) );
 
 var testcase = read.readLine();
 testcase = String(testcase).split(' ');
-var len = testcase[0];
-var qu = testcase[1];
+var len = Number(testcase[0]);
+var qu = Number(testcase[1]);
 var left = Number(testcase[2]);
 var right = Number(testcase[3]);
 var arr = [];
@@ -14,7 +14,6 @@ var arr = [];
 for (var i = 0; i < len; i++) {
     arr.push(Number(0));
 }
-
 for (var i = 0; i < qu; i++) {
     var query = read.readLine();
     query = String(query).split(' ');
@@ -25,23 +24,20 @@ for (var i = 0; i < qu; i++) {
         var count = 0;
         var subL = Number(query[1]);
         var subH = Number(query[2]);
-        for (var j = subL-1; j < subH; j++) {
-            for (var k = j; k < subH; k++) {
-                if (arr[j] > right || arr[k] > right) break;
-                var maxN = max(arr[j], arr[k]);
-                if (maxN) {
-                    if (arr[j] >= left && arr[j] <= right) count = Number(count + 1);
-                }
-                else {
-                    if (arr[k] >= left && arr[k] <= right) count = Number(count + 1);
-                }
+        for (var j = Number(subL-1); j < Number(subH); j++) {
+            for (var k = Number(j); k < subH; k++) {
+                var maxN = max(j, k);
+                if (maxN >= left && maxN <= right) count = count + 1;
             }
         }
-        System.out.println(count);
+        System.out.println(String(count));
         count = 0;
     }
 }
 function max(a, b) {
-    if (a > b) return 1;
-    else return 0;
+    var max = 0;
+    for (var i = a; i <=b; i++) {
+        if (arr[i] > max) max = arr[i];
+    }
+    return max;
 }
