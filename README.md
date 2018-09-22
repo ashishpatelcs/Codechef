@@ -1,2 +1,2 @@
 # Codechef
-My Codechef submissions. Mostly programming in Node.JS
+My Codechef submissions. Most of the solutions written in Node.JS
